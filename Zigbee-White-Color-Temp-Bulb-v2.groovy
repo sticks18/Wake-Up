@@ -119,7 +119,7 @@ def configure() {
 
 def setColorTemperature(value, duration = 2.0) {
     setGenericName(value)
-    def temp = zigbee.convertToHexString((1000000/value),4);
+    def temp = swapEndianHex(zigbee.convertToHexString((1000000/value),4))
     
     duration = duration * 10
     def tranTime = swapEndianHex(zigbee.convertToHexString(duration, 4))
